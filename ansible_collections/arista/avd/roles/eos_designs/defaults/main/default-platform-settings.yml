@@ -59,7 +59,7 @@ default_platform_settings:
     feature_support:
       queue_monitor_length_notify: false
       interface_storm_control: false
-  - platforms: ['CEOS', 'cEOS', 'ceos', 'cEOSLab']
+  - platforms: ['cEOS-lab','ceos-lab','CEOS', 'cEOS', 'ceos', 'cEOSLab']
     management_interface: Management0
     reload_delay:
       mlag: 300
