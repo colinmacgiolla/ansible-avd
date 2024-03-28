@@ -8,9 +8,11 @@ router_segment_security:
         - sequence: 10
           application: APP-TEST-1
           action: forward
+          stateless: false
         - sequence: 20
           application: APP-TEST-2
           action: drop
+          log: true
         - sequence: 25
           application: APP-TEST-3
           action: redirect

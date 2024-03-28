@@ -45,11 +45,11 @@ MSS-G is enabled.
 
 #### POLICY-TEST1
 
-| Sequence Number | Application Name | Action | Next-Hop |
-| --------------- | ---------------- | ------ | -------- |
-| 10 | APP-TEST-1 | forward | - |
-| 20 | APP-TEST-2 | drop | - |
-| 25 | APP-TEST-3 | redirect | 198.51.100.1 |
+| Sequence Number | Application Name | Action | Next-Hop | Log | Stateless |
+| --------------- | ---------------- | ------ | -------- | --- | ---------
+| 10 | APP-TEST-1 | forward | - | - | False |
+| 20 | APP-TEST-2 | drop | - | True | - |
+| 25 | APP-TEST-3 | redirect | 198.51.100.1 | - | - |
 
 ### Segment Definitions
 
@@ -107,8 +107,8 @@ router segment-security
    no shutdown
    !
    policy POLICY-TEST1
-      10 application APP-TEST-1 action forward stateless
-      20 application APP-TEST-2 action drop stateless
+      10 application APP-TEST-1 action forward
+      20 application APP-TEST-2 action drop log stateless
       25 application APP-TEST-3 action redirect next-hop 198.51.100.1
    !
    vrf default

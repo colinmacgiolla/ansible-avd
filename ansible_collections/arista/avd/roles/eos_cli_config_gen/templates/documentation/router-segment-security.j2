@@ -20,10 +20,10 @@ MSS-G is disabled.
 
 #### {{ policy.name }}
 
-| Sequence Number | Application Name | Action | Next-Hop |
-| --------------- | ---------------- | ------ | -------- |
+| Sequence Number | Application Name | Action | Next-Hop | Log | Stateless |
+| --------------- | ---------------- | ------ | -------- | --- | ---------
 {%             for entry in policy.sequence_numbers | arista.avd.natural_sort('sequence') %}
-| {{ entry.sequence }} | {{ entry.application }} | {{ entry.action }} | {{ entry.next_hop | arista.avd.default('-') }} |
+| {{ entry.sequence }} | {{ entry.application }} | {{ entry.action }} | {{ entry.next_hop | arista.avd.default('-') }} | {{ entry.log | arista.avd.default('-') }} | {{ entry.stateless | arista.avd.default('-') }} |
 {%             endfor %}
 {%         endfor %}
 {%     endif %}
