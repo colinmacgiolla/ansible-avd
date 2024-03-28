@@ -57,10 +57,10 @@ MSS-G is enabled.
 
 ##### Segment SEGMENT-TEST1 Definitions
 
-| Match-List Name | Address Family | Covered |
-| ------------ | -------------- | ------- |
-| MATCH-LIST10 | ipv4 | False |
-| MATCH-LIST11 | ipv6 | False |
+| Interface | Match-List Name | Address Family | Covered |
+| --------- |------------ | -------------- | ------- |
+| - | MATCH-LIST10 | ipv4 | False |
+| - | MATCH-LIST11 | ipv6 | False |
 
 ##### Segment SEGMENT-TEST1 Policies
 
@@ -70,10 +70,10 @@ MSS-G is enabled.
 
 ##### Segment SEGMENT-TEST2 Definitions
 
-| Match-List Name | Address Family | Covered |
-| ------------ | -------------- | ------- |
-| MATCH-LIST3 | ipv6 | False |
-| MATCH-LIST4 | ipv4 | True |
+| Interface | Match-List Name | Address Family | Covered |
+| --------- |------------ | -------------- | ------- |
+| - | MATCH-LIST3 | ipv6 | False |
+| - | MATCH-LIST4 | ipv4 | True |
 
 ##### Segment SEGMENT-TEST2 Policies
 
@@ -87,10 +87,12 @@ MSS-G is enabled.
 
 ##### Segment SEGMENT-TEST1 Definitions
 
-| Match-List Name | Address Family | Covered |
-| ------------ | -------------- | ------- |
-| MATCH-LIST1 | ipv6 | False |
-| MATCH-LIST10 | ipv4 | False |
+| Interface | Match-List Name | Address Family | Covered |
+| --------- |------------ | -------------- | ------- |
+| Ethernet1 | - | - | - |
+| Ethernet2 | - | - | - |
+| - | MATCH-LIST1 | ipv6 | False |
+| - | MATCH-LIST10 | ipv4 | False |
 
 ##### Segment SEGMENT-TEST1 Policies
 
@@ -108,8 +110,8 @@ router segment-security
    !
    policy POLICY-TEST1
       10 application APP-TEST-1 action forward
-      20 application APP-TEST-2 action drop log stateless
-      25 application APP-TEST-3 action redirect next-hop 198.51.100.1
+      20 application APP-TEST-2 action drop stateless log
+      25 application APP-TEST-3 action redirect next-hop 198.51.100.1 stateless
    !
    vrf default
       segment SEGMENT-TEST1
@@ -132,6 +134,8 @@ router segment-security
    vrf SECURE
       segment SEGMENT-TEST1
          definition
+            match interface Ethernet1
+            match interface Ethernet2
             match prefix-ipv6 MATCH-LIST1
             match prefix-ipv4 MATCH-LIST10
          !
