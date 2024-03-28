@@ -23653,6 +23653,7 @@
                     "stateless": {
                       "type": "boolean",
                       "description": "Take action, regardless of state. Should be set to 'true' for MSS-G.",
+                      "default": true,
                       "title": "Stateless"
                     },
                     "next_hop": {

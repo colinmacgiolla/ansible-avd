@@ -54,6 +54,7 @@ keys:
                   stateless:
                     type: bool
                     description: Take action, regardless of state. Should be set to 'true' for MSS-G.
+                    default: true
                   next_hop:
                     type: str
                     description: When the action is 'redirect', this indicates the IPv4 next hop to redirect to.
