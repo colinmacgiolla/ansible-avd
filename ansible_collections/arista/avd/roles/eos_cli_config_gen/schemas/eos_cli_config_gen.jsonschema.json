@@ -23645,6 +23645,16 @@
                       ],
                       "title": "Action"
                     },
+                    "log": {
+                      "type": "boolean",
+                      "description": "Enable logging - note that platform support is limited.",
+                      "title": "Log"
+                    },
+                    "stateless": {
+                      "type": "boolean",
+                      "description": "Take action, regardless of state. Should be set to 'true' for MSS-G.",
+                      "title": "Stateless"
+                    },
                     "next_hop": {
                       "type": "string",
                       "description": "When the action is 'redirect', this indicates the IPv4 next hop to redirect to.",

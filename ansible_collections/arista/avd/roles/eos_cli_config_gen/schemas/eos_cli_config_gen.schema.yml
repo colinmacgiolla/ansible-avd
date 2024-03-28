@@ -13636,6 +13636,13 @@ keys:
                     - forward
                     - drop
                     - redirect
+                  log:
+                    type: bool
+                    description: Enable logging - note that platform support is limited.
+                  stateless:
+                    type: bool
+                    description: Take action, regardless of state. Should be set to
+                      'true' for MSS-G.
                   next_hop:
                     type: str
                     description: When the action is 'redirect', this indicates the
